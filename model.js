@@ -1,4 +1,4 @@
-import { content } from './content.js?v=4.0.0';
+import { content } from './content.js?v=4.0.1';
 export const STORAGE_KEY = 'rentgen.studio.v1';
 export const goalMeta = {
   purchase: { label: 'Sprzedaż produktu', short: 'Sprzedaż', icon: 'bag', description: 'Od pierwszego kliknięcia do zakupu.' },

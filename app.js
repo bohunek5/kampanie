@@ -1,11 +1,11 @@
-import {studioView,initStudio,showAnalysis} from './studio.js?v=4.0.0';
-import { content, goalMeta, stages, statuses, briefFields, itemsFor, titleFor, tasksFor, taskState, stats, promptFor, markdownFor } from './model.js?v=4.0.0';
-import { icon } from './icons.js?v=4.0.0';
-import { WORKSPACE_KEY, loadWorkspace, importWorkspace, createCampaign, products, nodeTypes, reviewFlow, conversionTitles } from './workspace.js?v=4.0.0';
-import { FlowEditor, flowSVG } from './flow.js?v=4.0.0';
-import {guideView,feedbackTemplate} from './guide.js?v=4.0.0';
-import {handoffView,handoffHTML,refreshHandoff} from './handoff.js?v=4.0.0';
-import {cleanHandoff,cleanDesign,handoffFields,designFields,selectedCreatives} from './production-model.js?v=4.0.0';
+import {studioView,initStudio,showAnalysis} from './studio.js?v=4.0.1';
+import { content, goalMeta, stages, statuses, briefFields, itemsFor, titleFor, tasksFor, taskState, stats, promptFor, markdownFor } from './model.js?v=4.0.1';
+import { icon } from './icons.js?v=4.0.1';
+import { WORKSPACE_KEY, loadWorkspace, importWorkspace, createCampaign, products, nodeTypes, reviewFlow, conversionTitles } from './workspace.js?v=4.0.1';
+import { FlowEditor, flowSVG } from './flow.js?v=4.0.1';
+import {guideView,feedbackTemplate} from './guide.js?v=4.0.1';
+import {handoffView,handoffHTML,refreshHandoff} from './handoff.js?v=4.0.1';
+import {cleanHandoff,cleanDesign,handoffFields,designFields,selectedCreatives} from './production-model.js?v=4.0.1';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);

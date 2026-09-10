@@ -1,4 +1,4 @@
-import { icon } from './icons.js?v=4.0.0';
+import { icon } from './icons.js?v=4.0.1';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const stageTips={
  product:{do:'Wybierz konkretny produkt albo rodzinę produktów. Zapisz zastosowanie, wariant i link do aktualnej karty.',example:'Taśma COB do światła pod szafkami. Model i długość instalacji do ustalenia z opiekunem produktu.',ready:'Jest jasne, co pokazujemy. Parametry i zdjęcia dotyczą tego samego wariantu.'},

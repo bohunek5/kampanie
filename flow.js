@@ -1,8 +1,8 @@
-import { nodeTypes, audiences, uid, products } from './workspace.js?v=4.0.0';
-import { icon } from './icons.js?v=4.0.0';
-import { statuses } from './model.js?v=4.0.0';
-import {stageHelpHTML} from './guide.js?v=4.0.0';
-import {cleanDesign,designFields} from './production-model.js?v=4.0.0';
+import { nodeTypes, audiences, uid, products } from './workspace.js?v=4.0.1';
+import { icon } from './icons.js?v=4.0.1';
+import { statuses } from './model.js?v=4.0.1';
+import {stageHelpHTML} from './guide.js?v=4.0.1';
+import {cleanDesign,designFields} from './production-model.js?v=4.0.1';
 
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const esc=escapeHTML, W=228, H=154;

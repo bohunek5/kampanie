@@ -1,6 +1,6 @@
-import {cleanAnalysis} from './campaign-ai.js?v=4.0.0';
-import { cleanState, STORAGE_KEY } from './model.js?v=4.0.0';
-import {cleanHandoff,cleanDesign} from './production-model.js?v=4.0.0';
+import {cleanAnalysis} from './campaign-ai.js?v=4.0.1';
+import { cleanState, STORAGE_KEY } from './model.js?v=4.0.1';
+import {cleanHandoff,cleanDesign} from './production-model.js?v=4.0.1';
 
 export const WORKSPACE_KEY = 'prescot.campaigns.v1';
 export const uid = () => globalThis.crypto.randomUUID();

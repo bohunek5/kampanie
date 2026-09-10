@@ -51,3 +51,5 @@ body:has(main[data-view=studio]) main{max-width:1060px;padding:34px 44px 64px;ma
 @media(max-width:350px){body:has(main[data-view=studio]) main{padding:20px 16px 36px}.studio-wordmark img{width:144px}.studio-saved-link{font-size:12px}.studio-saved-link .icon{display:none}.studio-intro h1{font-size:34px}}
 @media(max-width:760px){.topbar{justify-content:space-between}.topbar-actions{display:flex}.topbar-actions .guide-trigger,.topbar-actions .top-plan{display:none}.topbar-actions .search-trigger span,.topbar-actions .search-trigger kbd{display:none}.topbar-actions .search-trigger{display:flex;min-width:44px;justify-content:center}.home-campaigns>.section-heading{align-items:flex-start;flex-direction:column}.home-campaigns .hero-actions{display:flex;flex-wrap:wrap;gap:10px}}
 @media(max-width:760px){.topbar-actions{gap:2px}.topbar-actions .guide-trigger{display:flex;width:40px;justify-content:center}.topbar-actions .guide-trigger span{display:none}.topbar-actions .search-trigger{min-width:40px}}
+
+.studio-error-actions{display:flex;flex-wrap:wrap;gap:12px}

@@ -1,8 +1,8 @@
-import { prescotLogo } from './brand.js?v=4.0.0';
-import { icon } from './icons.js?v=4.0.0';
-import { goalMeta } from './model.js?v=4.0.0';
-import { products, nodeTypes } from './workspace.js?v=4.0.0';
-import { cleanHandoff, cleanDesign, handoffFields, designFields, formatExamples, selectedCreatives, handoffGaps } from './production-model.js?v=4.0.0';
+import { prescotLogo } from './brand.js?v=4.0.1';
+import { icon } from './icons.js?v=4.0.1';
+import { goalMeta } from './model.js?v=4.0.1';
+import { products, nodeTypes } from './workspace.js?v=4.0.1';
+import { cleanHandoff, cleanDesign, handoffFields, designFields, formatExamples, selectedCreatives, handoffGaps } from './production-model.js?v=4.0.1';
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const missing='<span class="hb-missing">Do uzupełnienia</span>';
 function linkedText(value){

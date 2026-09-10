@@ -1,5 +1,5 @@
-import {createCampaign,uid,conversionTitles} from './workspace.js?v=4.0.0';
-import {cleanAnalysis} from './campaign-ai.js?v=4.0.0';
+import {createCampaign,uid,conversionTitles} from './workspace.js?v=4.0.1';
+import {cleanAnalysis} from './campaign-ai.js?v=4.0.1';
 
 export function campaignFromAnalysis(raw) {
   const analysis=cleanAnalysis(raw);if(!analysis)throw Error('Nie można zapisać niepełnej propozycji.');
