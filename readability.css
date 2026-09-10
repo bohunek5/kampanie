@@ -1,0 +1,261 @@
+/* Prescot 3.2: readable workspace, restrained hierarchy, original identity. */
+:root{--sidebar:248px;--text:#212a35;--muted:#586475;--line:#dfe4eb;--orange:#c4411e;--orange-dark:#a33417;--bg:#f6f7f9;font-size:16px}
+body{line-height:1.55}
+p{color:var(--muted)}
+main>:first-child{animation:none}
+h1,h2,h3{color:var(--text);letter-spacing:-.035em}
+.eyebrow{color:#606b7a;letter-spacing:.1em;font-weight:650;line-height:1.6}
+.soft-text{color:#667282}
+.button{min-height:44px;font-size:14px;line-height:1.5;border-radius:10px;padding:11px 17px}
+.button.primary{background:var(--orange);color:#fff}
+.button.primary:hover{background:var(--orange-dark)}
+.button.secondary{color:#394658;border-color:#d7dfe8}
+.text-link{font-size:14px;color:#8e391e}
+.icon-button{color:#586475;width:40px;height:40px}
+input,textarea,select{font-size:16px!important}
+input::placeholder,textarea::placeholder{color:#697586}
+.muted-caption,.save-label,[data-save-label]{color:#626f7f}
+.sidebar{padding:32px 18px 22px;overflow-y:auto}
+.prescot-brand{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:0 10px}
+.prescot-brand>img{width:196px;height:auto;max-width:100%;display:block}
+.prescot-brand .brand-sub{font-size:13px;color:#586475;letter-spacing:.04em;margin-top:12px;font-weight:500}
+.workspace-label{margin:34px 12px 16px;color:#667282;font-size:11px;letter-spacing:.08em}
+.nav-link{font-size:15px;line-height:1.45;color:#536071;padding:13px 12px;gap:12px}
+.nav-link .icon{width:20px;height:20px}
+.nav-link.active,.workspace-help a.active{color:#ac3619;background:#fff0e9}
+.nav-count{color:#596674;background:#edf0f4;font-size:12px}
+.workspace-help{margin:18px 4px 0;padding-top:16px;gap:5px}
+.workspace-help a{font-size:14px;color:#536071;padding:11px 10px;gap:12px}
+.workspace-help .icon{width:19px;height:19px}
+.sidebar-progress{margin:26px 7px 24px;padding:17px 0;border:0;border-top:1px solid var(--line);border-radius:0;background:none}
+.sidebar-progress .eyebrow{font-size:11px;color:#667282;letter-spacing:.04em}
+.sidebar-progress-title{margin:14px 0}
+.sidebar-progress-title>span{font-size:12px;line-height:1.4;width:auto;color:#586475}
+.sidebar-progress-title strong{font-size:30px;color:#293442}
+.sidebar-progress-title small{font-size:20px;color:#6b7684}
+.sidebar-progress a{font-size:13px;margin-top:15px;color:#536071}
+.sidebar-bottom{padding-top:18px;gap:10px}
+.sidebar-bottom strong{font-size:12px;color:#465467}
+.sidebar-bottom [data-save-label]{font-size:11px;color:#667282}
+.local-icon{padding:7px;color:#657486;background:#edf0f4}
+.topbar{height:86px;background:#fff;padding-inline:36px;gap:20px}
+.campaign-switch{max-width:none;flex:1;min-width:0}
+.campaign-switch-icon{width:40px;height:40px;color:#647287}
+.campaign-switch label{width:100%;gap:4px}
+.campaign-switch label>span{font-size:11px;color:#667282;letter-spacing:.06em}
+.campaign-switch select{font-size:15px!important;color:#293442;max-width:min(100%,440px);width:100%;min-height:27px}
+.topbar-actions{gap:20px;flex-shrink:0}
+.guide-trigger,.search-trigger{font-size:14px;color:#586475;min-height:44px}
+.search-trigger kbd{font-size:11px;color:#606c7b}
+.top-plan{font-size:14px;min-height:42px}
+body:has(main[data-view=home]) .top-plan{display:none}
+main{padding:34px 36px 48px;max-width:1440px}
+.home-view{gap:32px}
+.prescot-hero{min-height:300px;grid-template-columns:1.05fr 1fr;border-radius:18px;background:#212a35}
+.prescot-hero-copy{padding:34px 38px}
+.prescot-hero .eyebrow{color:#c3cad2;font-size:11px;letter-spacing:.08em}
+.prescot-hero h1{font-size:clamp(38px,3.6vw,52px);color:#fff;line-height:1.1;margin:18px 0}
+.prescot-hero h1 em{color:#ffad88}
+.prescot-hero p{font-size:16px;line-height:1.7;color:#d1d7dd;max-width:430px}
+.prescot-hero .hero-actions{margin-top:24px;gap:22px}
+.prescot-hero .hero-actions .button{font-size:15px;padding-inline:18px;min-height:46px}
+.prescot-hero .text-link{font-size:14px;color:#f0f2f5}
+.prescot-hero-visual:after{background:linear-gradient(90deg,#212a35,transparent 30%),linear-gradient(0deg,#111a28a0,transparent 50%)}
+.prescot-hero-visual>img{filter:none}
+.hero-photo-caption{position:absolute;bottom:25px;right:25px;left:35px;z-index:1;font-size:14px;color:#fff;text-align:right}
+.section-heading h2{font-size:26px}
+.section-heading .eyebrow{font-size:11px;margin-bottom:6px}
+.section-heading .muted-caption{font-size:13px;line-height:1.5}
+.campaign-cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.campaign-card{border-radius:14px}
+.campaign-card.current{border-color:#e1c3b5}
+.campaign-card-image{height:140px}
+.campaign-card-image>span{font-size:12px;line-height:1.4;padding:6px 9px}
+.campaign-card-body{padding:22px}
+.campaign-card-body .eyebrow{font-size:11px;letter-spacing:.04em;color:#677180}
+.campaign-card-body h3{font-size:21px;line-height:1.35;margin:10px 0}
+.campaign-card-body p{font-size:15px;line-height:1.65;color:#586475;margin-bottom:24px}
+.campaign-card-stats{font-size:12px;color:#606d7e;gap:10px;flex-wrap:wrap}
+.campaign-open{display:inline-flex;align-items:center;gap:7px;margin-left:auto;color:#8e391e}
+.campaign-open .icon{width:17px}
+.first-campaign-help{padding:23px 26px;background:#fff;border-color:var(--line);gap:18px}
+.first-campaign-help h2{font-size:18px;color:#293442}
+.first-campaign-help p{font-size:14px;color:#586475;line-height:1.6;margin-top:4px}
+.first-campaign-help>.button{font-size:14px}
+.page-intro p,.map-heading p,.handoff-heading p{font-size:16px;line-height:1.7;color:#586475}
+.map-heading h1{font-size:30px}
+.map-heading .eyebrow{font-size:11px}
+.map-heading>.button,.flow-tools .button{font-size:14px;min-height:42px}
+.flow-mode{font-size:13px;color:#4c5a6d}
+.flow-mode [data-flow-count]{font-size:12px;color:#657283}
+.flow-layout{height:clamp(460px,calc(100dvh - 375px),900px)}
+.flow-viewport{overflow:clip}
+.flow-node{padding:16px 18px}
+.node-heading{font-size:12px;color:#536477;letter-spacing:0}
+.flow-node h3{font-size:18px;line-height:1.25;margin-top:9px;height:46px;color:#253346}
+.node-bottom{font-size:12px;color:#5c6a7c;margin-top:8px}
+.node-grip{color:#738193}
+.flow-navigation .icon-button{width:34px;height:34px}
+.zoom-label{font-size:12px;width:44px;color:#4b596c}
+.flow-legend{font-size:11px;color:#596878}
+.flow-footer{font-size:12px;color:#586475;padding-block:12px;line-height:1.5}
+.map-stage-links{font-size:12px;gap:16px;color:#536477}
+.map-stage-links>span{font-size:11px;color:#657283}
+.flow-minimap>span{font-size:10px;color:#586475}
+.flow-inspector{width:350px;padding:22px}
+.inspector-heading h2{font-size:22px}
+.inspector-heading .eyebrow{font-size:10px}
+.inspector-heading>.icon-button{width:38px;height:38px}
+.inspector-hint{font-size:14px;color:#536477}
+.flow-inspector label,.campaign-dialog form>label,.node-assignment label{font-size:14px;color:#46556a}
+.flow-inspector input,.flow-inspector select,.flow-inspector textarea{padding:11px;color:#293442}
+.node-assignment{grid-template-columns:1fr}
+.node-assignment input{height:auto;min-height:44px}
+.flow-inspector .button.full,.inspector-checklist{font-size:14px;min-height:44px}
+.inspector-bottom button{font-size:13px;min-height:40px}
+.audience-chips button{font-size:12px;color:#695084;line-height:1.5;padding:7px 9px}
+.connection-hint{font-size:13px;color:#8e391e;white-space:normal;text-align:center;max-width:calc(100% - 24px);width:max-content}
+.guide-heading p,.guide-step>div>p,.guide-step>div>p:not(.guide-example),.guide-designer-intro p,.designer-steps p,.map-instructions p,.guide-faq details p,.feedback-guide p,.guide-callout dd{font-size:16px;color:#536174;line-height:1.75}
+.guide-two-columns{grid-template-columns:minmax(0,1fr) 300px;gap:40px}
+.guide-step h2{font-size:25px}
+.guide-step .guide-example,.guide-callout p{font-size:14px;color:#7a4f30}
+.guide-tabs a{font-size:14px;color:#566578}
+.guide-tabs a.active{color:#a33a1f}
+.guide-callout dt,.guide-faq summary{font-size:15px;color:#3e4f64}
+.guide-heading h1 span{color:#a15b38}
+.guide-route span{color:#59697c;font-size:12px}
+.guide-number{font-size:13px;color:#9d3f20}
+.guide-step .text-link{font-size:14px}
+.stage-help summary{font-size:13px;color:#8c4527}
+.stage-help p{font-size:14px;color:#536174}
+.stage-help>div>span{font-size:11px;color:#667282}
+.stage-help .tip-example{color:#805032}
+.stage-help a{font-size:13px;color:#8e391e}
+.handoff-fields label,.design-fields label,.brief-fields label,.field-label{font-size:15px;color:#425269}
+.handoff-fields input,.handoff-fields textarea,.design-fields input,.design-fields textarea{color:#293442}
+.handoff-intro p,.handoff-share p,.library-handoff p{font-size:15px;color:#586475}
+.handoff-intro h2,.handoff-share h3{color:#293442}
+.format-note,.handoff-snapshot-note{font-size:13px;color:#586475;line-height:1.7}
+.handoff-toolbar nav button{font-size:14px;color:#536174;min-height:44px}
+.handoff-toolbar nav button.active{color:#a33a1f}
+.deliverable-card>summary strong{font-size:20px}
+.deliverable-card>summary small{font-size:13px;color:#5e6b7e}
+.deliverable-included{font-size:12px;color:#8c4527}
+.handoff-check summary,.handoff-check ul,.handoff-check>p{color:#7a4f30;font-size:14px}
+.handoff-paper .hb-entry dt,.handoff-paper .hb-date,.handoff-paper .hb-footer{color:#626d7b}
+.handoff-paper .hb-entry dd,.handoff-paper .hb-title p,.handoff-paper .hb-delivery ol{color:#435267}
+.ad-brand{background:#fff;padding:7px 9px;border-radius:5px;line-height:0}
+.ad-brand img{position:static!important;width:140px!important;height:20px!important;object-fit:contain!important;filter:none!important}
+.detail-explanation,.detail-lead,.insight-block li,.brief-card-header p,.checklist-row small{color:#536174}
+.report-brief p,.report-stages p,.report-disclaimer,.report-stages small{color:#586475}
+.report-kpis article>span,.report-kpis small{color:#626f7f}
+@media(max-height:900px) and (min-width:761px){.sidebar-progress{margin-top:18px;padding-bottom:0}.sidebar-bottom{margin-top:12px}.sidebar{padding-top:25px}.workspace-label{margin-top:25px}}
+@media(max-width:1200px){:root{--sidebar:224px}.prescot-brand>img{width:180px}.sidebar{padding-inline:12px}.nav-link{font-size:14px}.topbar{padding-inline:26px}.topbar-actions{gap:14px}.search-trigger span,.search-trigger kbd{display:none}.top-plan span{display:none}.top-plan{width:42px;padding:8px}.top-plan .icon{width:20px}main{padding-inline:26px}.campaign-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.prescot-hero-copy{padding:30px}.prescot-hero h1{font-size:42px}.prescot-hero p{font-size:15px}.guide-two-columns{grid-template-columns:minmax(0,1fr) 260px;gap:26px}.guide-heading{align-items:flex-start}.guide-route{padding:20px 15px;gap:8px}.guide-route span{font-size:11px;min-width:40px}.flow-toolbar{flex-wrap:wrap}.flow-mode{white-space:normal}.flow-inspector{width:330px}}
+@media(max-width:1000px){:root{--sidebar:210px}.prescot-brand>img{width:166px}.nav-link{padding-inline:9px;gap:10px}.nav-count{display:none}.workspace-help a{padding-inline:6px}.guide-two-columns{grid-template-columns:1fr}.guide-side{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-heading{flex-direction:column}.guide-route{width:100%;justify-content:center}.prescot-hero{grid-template-columns:1fr .65fr}.hero-actions{gap:14px!important}.prescot-hero h1{font-size:38px}.hero-photo-caption{display:none}.section-heading .muted-caption{max-width:150px}.flow-mode-divider,.flow-mode [data-flow-count]{display:none}.map-heading{align-items:flex-start}.map-heading h1{font-size:27px}}
+@media(max-width:760px){
+ .topbar{height:auto;min-height:112px;display:grid;grid-template-columns:1fr auto;gap:12px 16px;padding:15px 20px}
+ .mobile-brand{display:block;grid-column:1;grid-row:1;padding:0;line-height:0}
+ .mobile-brand img{display:block;width:154px;height:auto}
+ .topbar-actions{grid-column:2;grid-row:1;gap:10px}
+ .guide-trigger,.search-trigger{width:36px;min-height:36px;justify-content:center;padding:0}
+ .guide-trigger span,.search-trigger span{display:none}
+ .guide-trigger .icon,.search-trigger .icon{width:20px;height:20px}
+ .campaign-switch{grid-column:1/-1;grid-row:2;max-width:100%;width:100%}
+ .campaign-switch label{display:flex;align-items:center;gap:12px;min-width:0}
+ .campaign-switch label>span{font-size:10px;max-width:66px;line-height:1.4;flex-shrink:0}
+ .campaign-switch select{flex:1;min-width:0;font-size:14px!important;max-width:none}
+ .mobile-nav{padding:7px 8px max(9px,env(safe-area-inset-bottom))}
+ .mobile-nav .nav-link{font-size:11px;line-height:1.4;min-height:48px;gap:5px}
+ .mobile-nav .icon{width:21px;height:21px}
+ main{padding:22px 20px 106px}
+ .home-view{gap:28px}
+ .prescot-hero{display:block;min-height:0;position:relative}
+ .prescot-hero-copy{padding:29px 25px}
+ .prescot-hero .eyebrow{font-size:10px}
+ .prescot-hero h1{font-size:40px;line-height:1.12;margin:17px 0}
+ .prescot-hero p{font-size:15px;line-height:1.7}
+ .prescot-hero-visual{height:136px;display:block}
+ .prescot-hero-visual:after{background:linear-gradient(180deg,#212a35,transparent 45%)}
+ .prescot-hero-visual>img{object-position:50% 56%}
+ .prescot-hero .hero-actions{gap:16px!important;align-items:flex-start;flex-direction:column}
+ .prescot-hero .hero-actions .button{font-size:15px;min-height:46px}
+ .prescot-hero .text-link{font-size:14px}
+ .section-heading{align-items:flex-start;flex-wrap:wrap;gap:8px}
+ .report-stages>.section-heading{flex-direction:column;align-items:flex-start;gap:12px}
+ .report-stages>.section-heading>.text-link{max-width:100%;width:auto;min-height:40px;text-align:left}
+ .section-heading h2{font-size:25px}
+ .section-heading .muted-caption{max-width:none;font-size:13px}
+ .campaign-cards{grid-template-columns:1fr;gap:17px}
+ .campaign-card-image{height:138px}
+ .campaign-card-body{padding:22px}
+ .campaign-card-body h3{font-size:21px}
+ .campaign-card-body p{font-size:15px}
+ .first-campaign-help{padding:24px 22px;display:block}
+ .first-campaign-help>.stage-icon{display:none}
+ .first-campaign-help h2{font-size:20px;line-height:1.4}
+ .first-campaign-help p{font-size:15px;margin-top:9px}
+ .first-campaign-help>.button{margin:17px 0 0;font-size:14px}
+ .guide-heading h1{font-size:35px}
+ .guide-heading .eyebrow{font-size:11px}
+ .guide-tabs{gap:3px}
+ .guide-tabs a{font-size:12px;line-height:1.5;padding:12px 6px}
+ .guide-route{padding:20px 12px;gap:8px}
+ .guide-route span{font-size:11px;min-width:40px}
+ .guide-step{gap:14px;padding-block:26px}
+ .guide-number{width:28px;height:28px;font-size:12px;flex-shrink:0;margin-top:4px}
+ .guide-step h2{font-size:23px}
+ .guide-step>div{min-width:0}
+ .guide-side{grid-template-columns:1fr}
+ .guide-step .guide-example{font-size:14px}
+ .guide-designer-intro h2{font-size:23px}
+ .handoff-toolbar nav{width:100%;display:grid;grid-template-columns:1fr 1fr}
+ .handoff-toolbar nav button{font-size:13px;white-space:normal;line-height:1.5;padding:11px 9px}
+ .handoff-toolbar>div{flex-wrap:wrap;justify-content:flex-start}
+ .handoff-toolbar .button{font-size:14px;min-height:44px}
+ .handoff-fields label,.design-fields label{font-size:15px}
+ .deliverable-included{font-size:11px}
+ .deliverable-content{padding:22px 18px}
+ .handoff-common{padding:24px 20px}
+ .handoff-heading h1{font-size:32px}
+ .handoff-heading p{font-size:15px}
+ .handoff-heading>.button{font-size:14px;min-height:44px}
+ .handoff-paper .hb-header{flex-wrap:wrap;gap:14px}
+ .handoff-paper .hb-date{text-align:left;max-width:none}
+ main[data-view=map]{padding:22px 14px 106px}
+ .map-heading{gap:14px;align-items:center}
+ .map-heading h1{font-size:25px}
+ .map-heading p{font-size:14px;line-height:1.6}
+ .map-heading .eyebrow{font-size:11px}
+ .map-heading>.button{min-width:40px;padding:8px}
+ .flow-toolbar{padding:12px;gap:10px}
+ .flow-mode{font-size:12px}
+ .flow-tools{gap:6px;flex-wrap:wrap}
+ .flow-tools .button{font-size:13px;min-height:40px;padding:9px 10px}
+ .flow-tools .icon-button{width:36px;height:38px}
+ .flow-layout{height:clamp(370px,calc(100dvh - 445px),560px);min-height:370px;max-height:none}
+ .flow-inspector{width:100%;padding:20px}
+ .flow-footer{font-size:11px;align-items:flex-start;line-height:1.6}
+ .flow-footer>span:last-child{display:none}
+ .flow-navigation{left:10px;bottom:12px;padding:3px;gap:0}
+ .flow-navigation .icon-button{width:31px;height:35px}
+ .flow-navigation i{margin-inline:3px}
+ .zoom-label{width:40px}
+ .flow-minimap{display:none}
+ .map-stage-links{font-size:12px;justify-content:flex-start;gap:13px}
+ .map-stage-links>span{width:100%;font-size:11px}
+ .node-assignment{grid-template-columns:1fr}
+ .goal-options.compact{grid-template-columns:1fr 1fr}
+ .compact .goal-option strong{font-size:14px}
+ .goal-option{min-width:0}
+ .goal-option>.icon{flex-shrink:0}
+ .filter-tabs{flex-wrap:wrap}
+ .checklist-row .status-pill{display:none}
+ .report-actions{flex-wrap:wrap}
+ .report-actions .button{font-size:14px;min-height:44px}
+ .dialog-actions .button{font-size:14px;min-height:44px}
+ .campaign-product-options span{font-size:14px}
+ .report-kpis article{padding:18px 15px}
+ .report-kpis article>span{font-size:11px}
+}
+@media(max-width:360px){.topbar{padding-inline:16px}.mobile-brand img{width:144px}main{padding-inline:16px}.prescot-hero-copy{padding:26px 22px}.prescot-hero h1{font-size:36px}.prescot-hero p{font-size:15px}.guide-tabs a{font-size:11px}.guide-step{gap:11px}.guide-step h2{font-size:22px}.guide-route{gap:5px}.guide-route span{font-size:10px;min-width:38px}.mobile-nav .nav-link{font-size:10px}.flow-tools .button{font-size:12px;padding:9px}.handoff-common{padding-inline:17px}.handoff-toolbar nav button{font-size:12px}.handoff-toolbar nav .icon{display:none}.goal-options.compact{grid-template-columns:1fr}.campaign-product-options{grid-template-columns:1fr}}
+@media print{.handoff-paper .hb-brand svg{width:180px}.handoff-paper .hb-entry dd{font-size:11px}.handoff-paper .hb-date{font-size:10px}.handoff-paper .hb-header{flex-wrap:nowrap}}

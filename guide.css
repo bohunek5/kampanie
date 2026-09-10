@@ -1,0 +1,429 @@
+/* Practical help and production briefs. No persistent animations. */
+.sidebar{overflow-y:auto}
+.workspace-help{display:grid;gap:3px;margin:13px 9px 0;padding-top:12px;border-top:1px solid #edf0f4}
+.workspace-help a{display:flex;align-items:center;gap:10px;padding:9px 5px;color:#8992a0;font-size:14px;border-radius:7px}
+.workspace-help .icon{width:16px;height:16px}
+.workspace-help a.active{background:#fff1e9;color:#d06e44;padding-left:9px}
+.workspace-help a:hover{color:#cd754b}
+.sidebar-progress{margin-top:22px}
+.guide-trigger{display:flex;align-items:center;gap:6px;color:#8b96a5;font-size:12px;white-space:nowrap;min-height:34px}
+.guide-trigger .icon{width:17px;height:17px}
+.guide-trigger:hover{color:#d87950}
+.first-campaign-help,.library-handoff{display:flex;align-items:center;gap:17px;border:1px solid #e8e2dc;background:#fffaf5;padding:22px 25px;border-radius:12px}
+.first-campaign-help>div,.library-handoff>div{flex:1;min-width:0}
+.first-campaign-help h2,.library-handoff h2{font-size:17px;line-height:1.4;color:#5d6570;letter-spacing:-.02em}
+.first-campaign-help p,.library-handoff p{font-size:14px;color:#a0968e;margin-top:5px;line-height:1.7}
+.first-campaign-help .button,.library-handoff .button{font-size:12px;min-height:38px;flex-shrink:0}
+.first-campaign-help>.stage-icon,.library-handoff>.stage-icon{width:36px;height:36px;border-radius:10px}
+.first-campaign-help>.stage-icon .icon,.library-handoff>.stage-icon .icon{width:19px;height:19px}
+.library-handoff{margin-bottom:24px;background:#fff;border-color:#e3e7ed}
+.library-handoff p{color:#929cac}
+.stage-help{border:1px solid #e6e9ef;border-radius:8px;background:#fafbfd;margin:-4px 0 18px}
+.stage-help summary{display:flex;align-items:center;gap:7px;padding:11px 10px;cursor:pointer;list-style:none;color:#8490a2;font-size:12px;line-height:1.5}
+.stage-help summary::-webkit-details-marker{display:none}
+.stage-help summary>.icon{width:14px;height:14px}
+.stage-help summary>.icon:last-child{margin-left:auto;width:12px}
+.stage-help[open] summary{border-bottom:1px solid #e9edf2}
+.stage-help>div{padding:12px}
+.stage-help p{font-size:12px;line-height:1.8;color:#8290a3;margin-bottom:14px}
+.stage-help>div>span{display:block;font-size:11px;letter-spacing:.1em;color:#b2a090;margin:14px 0 6px}
+.stage-help .tip-example{background:#fff7ef;padding:9px 10px;border-radius:6px;color:#a48771}
+.stage-help a{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#c47d51;line-height:1.6}
+.stage-help a .icon{width:13px;height:13px}
+.inspector-handoff{margin-bottom:17px!important;color:#b07354!important}
+.guide-heading{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:15px 0 30px}
+.guide-heading h1{font-size:42px;line-height:1.15;letter-spacing:-.045em;margin:13px 0 17px;color:#3b4659}
+.guide-heading h1 span{color:#bc9278}
+.guide-heading p{max-width:460px;font-size:14px;color:#929aa8;line-height:1.8}
+.guide-heading .eyebrow{font-size:11px}
+.guide-route{display:flex;align-items:center;gap:11px;border:1px solid #e4e7ec;background:#fff;border-radius:13px;padding:27px 20px}
+.guide-route span{display:flex;flex-direction:column;align-items:center;gap:13px;font-size:12px;color:#8c97a7;min-width:51px}
+.guide-route .icon{width:23px;height:23px;color:#d68b65}
+.guide-route i{color:#c6cdd7;font-size:16px;font-style:normal}
+.guide-tabs{display:flex;align-items:center;border:1px solid #e2e6ed;background:white;border-radius:11px;padding:5px;gap:5px;margin-bottom:30px}
+.guide-tabs a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 15px;border-radius:8px;font-size:14px;color:#929cac;line-height:1.5}
+.guide-tabs a .icon{width:17px;height:17px}
+.guide-tabs a.active{background:#fff0e7;color:#d27b50}
+.guide-tabs a:hover{background:#f8f9fb}
+.guide-tabs a.active:hover{background:#ffebde}
+.guide-two-columns{display:grid;grid-template-columns:1fr 285px;gap:36px}
+.guide-steps{display:grid;gap:0}
+.guide-step{display:flex;gap:20px;padding:28px 0;border-bottom:1px solid #e2e7ee}
+.guide-step:first-child{padding-top:8px}
+.guide-step:last-child{border-bottom:0}
+.guide-number{color:#ce9a7b;font-size:14px;letter-spacing:-.03em;display:grid;place-items:center;flex-shrink:0;width:35px;height:35px;border:1px solid #efd7c4;border-radius:10px;background:#fff8f0}
+.guide-step h2{font-size:22px;color:#546075;margin:4px 0 12px;letter-spacing:-.03em}
+.guide-step p{font-size:14px;line-height:1.85;color:#919bab}
+.guide-step .guide-example{font-size:14px;color:#ae9887;padding-left:13px;border-left:2px solid #e9d6c3;margin:15px 0}
+.guide-step .text-link{font-size:14px;margin-top:5px;color:#af8163}
+.guide-step .text-link .icon{width:14px}
+.guide-side{display:grid;align-content:start;gap:18px}
+.guide-callout{background:white;border:1px solid #e1e7ee;border-radius:12px;padding:24px}
+.guide-callout>.eyebrow{font-size:11px;margin-bottom:9px;color:#a6acb5}
+.guide-callout h3{font-size:19px;color:#6c788c;margin-bottom:20px;letter-spacing:-.025em}
+.guide-callout dl{margin:0}
+.guide-callout dt{font-size:14px;font-weight:600;color:#8994a6;margin-bottom:5px}
+.guide-callout dd{font-size:14px;line-height:1.8;color:#a1aaba;margin:0 0 19px}
+.guide-callout dd:last-child{margin-bottom:0}
+.guide-callout p{font-size:14px;color:#a29790;line-height:1.9}
+.guide-callout .text-link{font-size:12px;color:#b7886e;margin-top:18px}
+.guide-orange{background:#fffbf7;border-color:#ecdfd4}
+.guide-orange h3{color:#a88974}
+.guide-faq{margin-top:32px;padding:28px;background:#fff;border:1px solid #e1e7ee;border-radius:12px}
+.guide-faq h2{font-size:23px;color:#657289;margin-bottom:20px}
+.guide-faq details{border-top:1px solid #e8ecf2}
+.guide-faq details:last-child{border-bottom:1px solid #e8ecf2}
+.guide-faq summary{display:flex;align-items:center;justify-content:space-between;gap:15px;list-style:none;padding:17px 0;cursor:pointer;font-size:14px;color:#7a879b;line-height:1.5}
+.guide-faq summary::-webkit-details-marker{display:none}
+.guide-faq summary .icon{width:15px;height:15px}
+.guide-faq details p{font-size:14px;line-height:1.85;color:#96a0b0;padding:0 28px 20px 0;max-width:850px}
+.guide-designer-intro{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e3e7ee;border-radius:12px;padding:28px;margin-bottom:24px}
+.guide-designer-intro>div{flex:1;min-width:0}
+.guide-designer-intro h2{font-size:22px;color:#647087;margin-bottom:10px}
+.guide-designer-intro p{font-size:14px;line-height:1.85;color:#98a1b1;max-width:610px}
+.guide-designer-intro .button{font-size:14px;flex-shrink:0}
+.designer-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.designer-steps article{padding:24px 21px;background:#fff;border:1px solid #e2e7ee;border-radius:11px}
+.designer-steps article>span{font-size:14px;color:#c4987e;display:inline-block;margin-bottom:21px}
+.designer-steps h3{font-size:18px;line-height:1.3;color:#6c788d;margin-bottom:12px}
+.designer-steps p{font-size:14px;line-height:1.85;color:#a0aaba}
+.feedback-guide{display:grid;grid-template-columns:1fr .85fr;gap:35px;align-items:center;padding:30px;background:#f0f3f7;border:1px solid #e1e7ef;border-radius:12px;margin-top:24px}
+.feedback-guide .eyebrow{font-size:11px;letter-spacing:.09em}
+.feedback-guide h2{font-size:24px;color:#68778f;margin:12px 0}
+.feedback-guide p{font-size:14px;line-height:1.85;color:#93a1b4}
+.feedback-guide .button{font-size:14px;min-height:39px;margin-top:20px}
+.feedback-guide pre{white-space:pre-wrap;background:#fff;border:1px solid #dfe6ee;border-radius:9px;padding:22px;font:11px/2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#8a9bb1;overflow-wrap:anywhere;margin:0}
+.guide-map-layout{display:grid;grid-template-columns:1fr 285px;gap:30px;align-items:start}
+.map-instructions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.map-instructions article{padding:25px;background:#fff;border:1px solid #e1e7ee;border-radius:11px}
+.map-instructions .stage-icon{width:33px;height:33px;border-radius:9px;margin-bottom:18px}
+.map-instructions .stage-icon .icon{width:18px;height:18px}
+.map-instructions h3{font-size:18px;color:#6d7b90;margin-bottom:11px}
+.map-instructions p{font-size:14px;line-height:1.85;color:#9ca8b8}
+
+/* Production editor */
+.handoff-heading{display:flex;align-items:center;justify-content:space-between;gap:25px;margin:12px 0 28px}
+.handoff-heading h1{font-size:37px;line-height:1.2;letter-spacing:-.035em;color:#47566d;margin:12px 0}
+.handoff-heading>.button{font-size:14px;min-height:39px;flex-shrink:0}
+.handoff-heading .eyebrow{font-size:11px}
+.handoff-heading p{font-size:14px;color:#919eaf;overflow-wrap:anywhere;line-height:1.7}
+.handoff-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:23px;position:sticky;top:0;background:#f6f7f9;z-index:8;padding:10px 0}
+.handoff-toolbar nav{display:flex;gap:4px;padding:4px;border:1px solid #e0e6ee;background:#fff;border-radius:9px}
+.handoff-toolbar nav button{display:flex;align-items:center;gap:7px;padding:10px 12px;border-radius:6px;color:#96a2b3;font-size:12px;line-height:1.5}
+.handoff-toolbar nav button.active{background:#fff0e7;color:#c6845d}
+.handoff-toolbar nav .icon{width:15px;height:15px}
+.handoff-toolbar>div{display:flex;gap:8px;align-items:center}
+.handoff-toolbar .button{font-size:12px;min-height:37px;padding:9px 12px}
+.handoff-toolbar .button:disabled{opacity:.45}
+.handoff-intro{display:flex;gap:18px;align-items:center;padding:23px 26px;background:#fffaf5;border:1px solid #ede0d5;border-radius:11px;margin-bottom:24px}
+.handoff-intro h2{font-size:19px;color:#9c806b;margin-bottom:7px}
+.handoff-intro p{font-size:14px;line-height:1.9;color:#a69a90;max-width:820px}
+.handoff-intro>.stage-icon{width:38px;height:38px;border-radius:11px}
+.handoff-common{padding:29px 30px;background:#fff;border:1px solid #e1e7ef;border-radius:12px;margin-bottom:32px}
+.handoff-common .section-heading h2,.handoff-deliverables .section-heading h2{font-size:23px;color:#65748b}
+.handoff-common .section-heading .eyebrow,.handoff-deliverables .section-heading .eyebrow{font-size:11px}
+.handoff-fields{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:19px;margin-top:23px}
+.handoff-fields>label{grid-column:span 2}
+.handoff-fields>label:nth-child(4){grid-column:1/-1}
+.handoff-fields>label:nth-child(n+5){grid-column:span 3}
+.handoff-fields label,.design-fields label{display:grid;gap:9px;color:#8896a9;font-size:14px;font-weight:550;line-height:1.6;min-width:0}
+.handoff-fields input,.handoff-fields textarea,.design-fields input,.design-fields textarea{width:100%;min-width:0;padding:12px;border:1px solid #e0e6ef;border-radius:8px;background:#fdfefe;color:#5c6b82;font-size:14px;line-height:1.75;font-weight:400;max-width:100%}
+.handoff-fields input[type=date]{height:47px}
+.handoff-fields input::placeholder,.handoff-fields textarea::placeholder,.design-fields input::placeholder,.design-fields textarea::placeholder{color:#abb5c4;font-size:14px;font-weight:400}
+.handoff-fields textarea,.design-fields textarea{min-height:116px;resize:vertical}
+.handoff-deliverables>.section-heading{margin-bottom:19px}
+.handoff-deliverables>.section-heading>.text-link{font-size:12px;color:#b99176}
+.deliverable-card{border:1px solid #e0e7ef;border-radius:12px;background:#fff;margin-bottom:15px;overflow:hidden}
+.deliverable-card>summary{display:flex;align-items:center;gap:14px;padding:21px 24px;cursor:pointer;list-style:none}
+.deliverable-card>summary::-webkit-details-marker{display:none}
+.deliverable-card>summary>.stage-icon{width:34px;height:34px;border-radius:10px}
+.deliverable-card>summary>.stage-icon .icon{width:18px;height:18px}
+.deliverable-card>summary strong{font-size:16px;line-height:1.4;font-weight:600;letter-spacing:-.02em;color:#6c7a90;display:block;overflow-wrap:anywhere}
+.deliverable-card>summary small{display:block;font-size:12px;color:#9fabbc;margin-top:5px;line-height:1.5}
+.deliverable-card>summary>.icon{width:16px;height:16px;color:#acb6c5}
+.deliverable-included{margin-left:auto;white-space:nowrap;font-size:12px;color:#b89780;background:#fff6eb;border-radius:5px;padding:5px 8px;line-height:1.5}
+.deliverable-card[open]>summary{border-bottom:1px solid #e9edf3}
+.deliverable-content{padding:25px 28px}
+.deliverable-include{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px}
+.deliverable-include label{display:flex;align-items:center;gap:9px;font-size:14px;color:#8c9aae;line-height:1.6;cursor:pointer}
+.deliverable-include input{width:16px;height:16px;accent-color:#e98a58;margin:0;flex-shrink:0}
+.deliverable-include .text-link{font-size:12px;color:#b39077}
+.deliverable-include .text-link .icon{width:13px}
+.deliverable-concept{background:#f7f9fc;border:1px solid #e7edf4;border-radius:8px;padding:17px 19px;margin-bottom:23px}
+.deliverable-concept>span{font-size:11px;letter-spacing:.11em;color:#9eacc0}
+.deliverable-concept p{font-size:14px;color:#8b9bb2;line-height:1.8;margin-top:7px;white-space:pre-wrap;overflow-wrap:anywhere}
+.design-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.design-fields label:has(textarea){grid-column:1/-1}
+.design-fields input[data-design-field=destination]{font-size:14px}
+.format-note{font-size:12px;line-height:1.85;color:#a5b0c1;margin:20px 0 0}
+.handoff-check{border:1px solid #e9e0d5;background:#fffcf7;border-radius:10px;margin:22px 0}
+.handoff-check summary{display:flex;align-items:center;gap:11px;padding:18px 21px;list-style:none;cursor:pointer;font-size:14px;color:#b1957d;line-height:1.6}
+.handoff-check summary::-webkit-details-marker{display:none}
+.handoff-check summary>.icon{width:17px;height:17px}
+.handoff-check summary>.icon:last-child{margin-left:auto;width:14px}
+.handoff-check ul{margin:0;padding:0 24px 12px 51px;font-size:14px;line-height:1.9;color:#b7a391}
+.handoff-check>p{font-size:12px;color:#b1a497;line-height:1.8;padding:0 24px 21px;margin:0}
+.handoff-share{display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px solid #e1e6ee;border-radius:11px;background:#fff;padding:25px}
+.handoff-share>div{display:flex;align-items:center;gap:16px}
+.handoff-share>div>.icon{color:#c49877}
+.handoff-share h3{font-size:16px;color:#818d9f;line-height:1.5}
+.handoff-share p{font-size:12px;color:#a1adbe;line-height:1.8;margin-top:5px}
+.handoff-share>.button{font-size:12px;flex-shrink:0;min-height:38px}
+.handoff-snapshot-note{font-size:14px;color:#9ca8b9;line-height:1.8;margin:0 0 20px;max-width:900px}
+.handoff-preview{border:1px solid #e0e7ef;background:#fff;border-radius:12px;overflow:hidden}
+.handoff-empty{border:1px dashed #cfd8e5;border-radius:12px;padding:40px;text-align:center;color:#8b9aaf}
+.handoff-empty h3{font-size:23px;margin-bottom:12px}
+.handoff-empty p{font-size:14px;line-height:1.8;margin-bottom:24px;color:#9cabbf}
+.handoff-empty .button{font-size:14px}
+
+@media(max-width:1200px){.guide-heading{gap:20px}
+.guide-heading h1{font-size:36px}
+.guide-route{padding:24px 13px;gap:6px}
+.guide-route span{min-width:40px;font-size:11px}
+.guide-route .icon{width:19px;height:19px}
+.guide-two-columns{grid-template-columns:1fr 240px;gap:26px}
+.guide-map-layout{grid-template-columns:1fr 240px;gap:22px}
+.guide-callout{padding:21px}
+.guide-callout h3{font-size:18px}
+.guide-step h2{font-size:20px}
+.guide-step p{font-size:14px}
+.designer-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.handoff-toolbar{align-items:flex-start;flex-direction:column;gap:11px}
+.handoff-toolbar>div{align-self:flex-end}
+.guide-trigger>span{display:none}
+.guide-trigger{width:23px;justify-content:center}
+.topbar-actions{gap:16px}
+.first-campaign-help,.library-handoff{flex-wrap:wrap;gap:13px}
+.first-campaign-help>.button,.library-handoff>.button{margin-left:49px}
+.handoff-heading h1{font-size:33px}
+.handoff-heading>.button{font-size:12px}
+.handoff-common{padding:25px}
+.handoff-share{align-items:flex-start;flex-direction:column}
+.handoff-share>.button{margin-left:38px}
+.map-instructions{grid-template-columns:1fr}
+.guide-designer-intro{flex-wrap:wrap}
+.guide-designer-intro>.button{margin-left:64px}
+.guide-designer-intro h2{font-size:21px}
+.feedback-guide{gap:23px;padding:26px}
+.feedback-guide h2{font-size:22px}
+.handoff-heading p{font-size:14px}
+.workspace-help a{font-size:12px}
+}
+
+@media(max-width:900px){.guide-heading{align-items:flex-start;flex-direction:column}
+.guide-route{padding:20px;width:100%;gap:17px;justify-content:center}
+.guide-route span{min-width:55px;font-size:12px}
+.guide-two-columns{grid-template-columns:1fr}
+.guide-side{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.guide-map-layout{grid-template-columns:1fr}
+.map-instructions{grid-template-columns:repeat(2,minmax(0,1fr))}
+.guide-step{padding-block:25px}
+.guide-step h2{font-size:22px}
+.guide-step p{font-size:14px}
+.guide-step .guide-example{font-size:14px}
+.guide-callout{padding:22px}
+.guide-heading h1{font-size:39px}
+.guide-tabs a{font-size:12px;padding:12px 10px}
+.guide-tabs .icon{width:15px;height:15px}
+.feedback-guide{grid-template-columns:1fr}
+.feedback-guide pre{padding:20px}
+.handoff-heading{align-items:flex-start;flex-direction:column;gap:14px}
+.handoff-heading>.button{font-size:14px}
+.handoff-toolbar{padding-block:8px}
+.handoff-common .section-heading{align-items:flex-start;flex-direction:column}
+.handoff-common .section-heading h2,.handoff-deliverables .section-heading h2{font-size:21px}
+.handoff-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+.handoff-fields>label{grid-column:span 1}
+.handoff-fields>label:nth-child(n+3){grid-column:1/-1}
+.handoff-common{padding:25px}
+.deliverable-card>summary{padding:20px 19px;gap:11px}
+.deliverable-content{padding:22px}
+.deliverable-card>summary strong{font-size:16px}
+.deliverable-included{font-size:11px}
+.deliverable-include{align-items:flex-start;flex-direction:column;gap:12px}
+.design-fields{gap:17px}
+.handoff-intro{padding:21px}
+.handoff-intro h2{font-size:18px}
+.handoff-intro p{font-size:14px}
+.topbar-actions{gap:12px}
+.workspace-help{margin-inline:3px}
+.workspace-help a{font-size:12px}
+}
+
+@media(max-width:760px){.campaign-switch{max-width:calc(100% - 90px);flex:1}
+.campaign-switch select{max-width:100%}
+.campaign-switch>label{flex:1;min-width:0}
+.topbar-actions{gap:9px}
+.guide-trigger{width:27px;min-height:36px}
+.guide-trigger .icon{width:18px;height:18px}
+.guide-heading{padding-top:5px;padding-bottom:24px;gap:24px}
+.guide-heading h1{font-size:37px}
+.guide-heading .eyebrow{font-size:11px}
+.guide-heading p{font-size:14px}
+.guide-route{padding:20px 15px;gap:9px}
+.guide-route span{min-width:50px;font-size:12px}
+.guide-route .icon{width:21px;height:21px}
+.guide-tabs{gap:3px;padding:4px;margin-bottom:24px}
+.guide-tabs a{font-size:12px;gap:7px;padding:11px 9px;flex-direction:column;text-align:center}
+.guide-tabs .icon{width:17px;height:17px}
+.guide-step{gap:14px;padding-block:24px}
+.guide-step h2{font-size:21px;line-height:1.3;margin-top:3px}
+.guide-number{width:30px;height:30px;border-radius:9px;font-size:12px}
+.guide-step p{font-size:14px;line-height:1.85}
+.guide-step .guide-example{font-size:14px;padding-left:11px}
+.guide-step .text-link{font-size:14px}
+.guide-side{grid-template-columns:1fr}
+.guide-callout{padding:24px}
+.guide-callout h3{font-size:20px}
+.guide-callout dt{font-size:14px}
+.guide-callout dd{font-size:14px}
+.guide-callout p{font-size:14px}
+.guide-faq{padding:24px 20px}
+.guide-faq h2{font-size:23px}
+.guide-faq summary{font-size:14px;line-height:1.6;padding-block:17px}
+.guide-faq details p{font-size:14px;padding-right:6px}
+.guide-designer-intro{padding:22px;gap:15px}
+.guide-designer-intro>.stage-icon{width:35px;height:35px;border-radius:10px;align-self:flex-start}
+.guide-designer-intro>.stage-icon .icon{width:20px;height:20px}
+.guide-designer-intro h2{font-size:20px;line-height:1.3}
+.guide-designer-intro p{font-size:14px}
+.guide-designer-intro>.button{margin-left:50px;font-size:12px}
+.designer-steps{gap:12px}
+.designer-steps article{padding:22px 19px}
+.designer-steps h3{font-size:18px}
+.designer-steps p{font-size:14px}
+.feedback-guide{padding:24px 21px;gap:24px}
+.feedback-guide .eyebrow{font-size:11px;line-height:1.8}
+.feedback-guide h2{font-size:23px}
+.feedback-guide p{font-size:14px}
+.feedback-guide pre{font-size:14px}
+.map-instructions{grid-template-columns:1fr;gap:15px}
+.map-instructions article{padding:24px;display:flex;gap:17px;align-items:flex-start}
+.map-instructions .stage-icon{margin-bottom:0;flex-shrink:0}
+.map-instructions h3{font-size:20px}
+.map-instructions p{font-size:14px}
+.first-campaign-help,.library-handoff{padding:21px 20px;gap:13px}
+.first-campaign-help h2,.library-handoff h2{font-size:16px;line-height:1.4}
+.first-campaign-help p,.library-handoff p{font-size:14px}
+.first-campaign-help>.stage-icon,.library-handoff>.stage-icon{align-self:flex-start}
+.first-campaign-help>.button,.library-handoff>.button{font-size:12px}
+.handoff-heading h1{font-size:32px;margin-block:10px}
+.handoff-heading{margin-top:3px;margin-bottom:21px;gap:15px}
+.handoff-heading p{font-size:14px}
+.handoff-heading>.button{font-size:12px;min-height:36px}
+.handoff-toolbar{position:static;padding:0;margin-bottom:23px;gap:13px;align-items:stretch}
+.handoff-toolbar nav{justify-content:space-between}
+.handoff-toolbar nav button{flex:1;justify-content:center;font-size:12px;padding:12px 9px;gap:6px}
+.handoff-toolbar nav .icon{width:15px;height:15px}
+.handoff-toolbar>div{align-self:stretch;justify-content:flex-end}
+.handoff-toolbar .button{font-size:12px;min-height:37px;padding:9px 12px}
+.handoff-intro{padding:21px 19px;gap:14px;align-items:flex-start}
+.handoff-intro>.stage-icon{width:31px;height:31px;border-radius:9px}
+.handoff-intro>.stage-icon .icon{width:18px;height:18px}
+.handoff-intro h2{font-size:18px;line-height:1.3}
+.handoff-intro p{font-size:14px}
+.handoff-common{padding:23px 20px}
+.handoff-common .section-heading h2,.handoff-deliverables .section-heading h2{font-size:22px}
+.handoff-fields{grid-template-columns:1fr;gap:19px}
+.handoff-fields>label,.handoff-fields>label:nth-child(n){grid-column:1/-1}
+.handoff-fields label,.design-fields label{font-size:14px;gap:8px}
+.handoff-fields input,.handoff-fields textarea,.design-fields input,.design-fields textarea{font-size:16px;padding:12px;line-height:1.8}
+.handoff-fields input::placeholder,.handoff-fields textarea::placeholder,.design-fields input::placeholder,.design-fields textarea::placeholder{font-size:14px}
+.handoff-common .save-label{font-size:12px}
+.handoff-deliverables>.section-heading{flex-direction:column;align-items:flex-start;gap:12px}
+.handoff-deliverables>.section-heading>.text-link{font-size:14px}
+.deliverable-card>summary{padding:18px 16px;gap:10px;flex-wrap:wrap}
+.deliverable-card>summary>span:nth-child(2){flex:1;min-width:60%}
+.deliverable-card>summary strong{font-size:16px}
+.deliverable-card>summary small{font-size:12px}
+.deliverable-card>summary>.stage-icon{width:31px;height:31px;border-radius:9px}
+.deliverable-card>summary>.icon{margin-left:auto}
+.deliverable-included{margin-left:41px;font-size:11px}
+.deliverable-content{padding:21px 17px}
+.deliverable-include label{font-size:14px}
+.deliverable-include input{width:17px;height:17px}
+.deliverable-include .text-link{font-size:12px}
+.deliverable-concept{padding:15px}
+.deliverable-concept p{font-size:14px}
+.design-fields{grid-template-columns:1fr;gap:19px}
+.design-fields label{grid-column:1/-1}
+.design-fields input[data-design-field=destination]{font-size:14px}
+.format-note{font-size:12px}
+.handoff-check summary{padding:17px 18px;font-size:14px;gap:8px}
+.handoff-check ul{padding-left:35px;font-size:14px}
+.handoff-check>p{padding-inline:19px}
+.handoff-share{padding:22px 20px}
+.handoff-share>div{align-items:flex-start;gap:12px}
+.handoff-share>div>.icon{width:20px;height:20px;margin-top:2px}
+.handoff-share h3{font-size:16px}
+.handoff-share p{font-size:14px}
+.handoff-share>.button{margin-left:32px}
+.handoff-snapshot-note{font-size:14px}
+.stage-help summary{font-size:12px;padding:12px}
+.stage-help p{font-size:14px}
+.stage-help>div>span{font-size:11px}
+.stage-help a{font-size:12px}
+.inspector-handoff{font-size:14px!important}
+.handoff-empty{padding:30px 24px}
+}
+
+@media(max-width:450px){.guide-heading h1{font-size:34px}
+.guide-route{gap:7px;padding:20px 12px}
+.guide-route span{min-width:42px;font-size:11px}
+.guide-route .icon{width:20px;height:20px}
+.guide-tabs a{font-size:11px;padding:11px 6px;gap:6px}
+.guide-tabs .icon{width:16px;height:16px}
+.designer-steps{grid-template-columns:1fr}
+.designer-steps article{padding:24px}
+.designer-steps article>span{margin-bottom:13px}
+.designer-steps h3{font-size:20px}
+.guide-designer-intro>div{min-width:70%}
+.guide-designer-intro>.button{margin-left:0}
+.guide-designer-intro>.stage-icon{display:none}
+.first-campaign-help>div,.library-handoff>div{min-width:70%}
+.first-campaign-help>.button,.library-handoff>.button{margin-left:0}
+.handoff-heading h1{font-size:30px}
+.handoff-common .section-heading h2{font-size:21px}
+.handoff-intro{display:block}
+.handoff-intro>.stage-icon{margin-bottom:13px}
+.handoff-toolbar nav button{font-size:12px;padding:11px 8px}
+.handoff-toolbar nav .icon{width:14px;height:14px}
+.handoff-share>.button{margin-left:0}
+.guide-callout h3{font-size:20px}
+.guide-faq{padding:23px 18px}
+.guide-step{gap:11px}
+.guide-number{width:27px;height:27px;font-size:12px}
+.guide-step h2{font-size:20px}
+.handoff-common{padding:22px 18px}
+.deliverable-content{padding-inline:16px}
+.handoff-preview .handoff-paper{padding-inline:18px}
+.map-instructions article{padding:22px 19px;gap:13px}
+.map-instructions h3{font-size:19px}
+}
+
+@media print{main[data-view=handoff]{padding:0!important}
+.handoff-heading,.handoff-toolbar,.handoff-snapshot-note{display:none!important}
+.handoff-preview{border:0;border-radius:0;background:white}
+.handoff-preview .handoff-paper{padding:0}
+.handoff-paper .hb-title h1{font-size:25px}
+.handoff-paper .hb-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.handoff-paper .hb-entry dd{font-size:12px}
+.handoff-paper .hb-material{padding:18px 20px}
+.handoff-paper .hb-brand{font-size:20px}
+.handoff-paper .hb-date{max-width:none;font-size:12px}
+}
+
+/* Reading copy needs more contrast than secondary interface labels. */
+.guide-step>div>p,.guide-heading p,.guide-designer-intro p,.designer-steps p,.map-instructions p,.guide-faq details p,.feedback-guide p,.guide-callout dd{color:#6e7d92}
+.guide-step>div>p:not(.guide-example){font-size:16px}
+.guide-faq summary,.guide-callout dt{color:#68798f}
+.guide-step .guide-example,.guide-callout p{color:#957d6a}
+.handoff-intro p,.first-campaign-help p{color:#8e7968}
+.handoff-fields label,.design-fields label{color:#718097}
+.handoff-snapshot-note,.format-note,.handoff-share p{color:#7f8da1}
+.stage-help p{color:#6d7d93}
+.stage-help .tip-example{color:#967659}
+.handoff-toolbar nav button,.guide-tabs a{color:#7c899b}
+.handoff-check summary,.handoff-check ul{color:#98785a}
+.handoff-check>p{color:#9a846f}
+

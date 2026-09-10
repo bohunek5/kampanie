@@ -1,0 +1,26 @@
+const paths = {
+ plus:'<path d="M12 5v14M5 12h14"/>', minus:'<path d="M5 12h14"/>',
+ fit:'<path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/><rect x="8" y="8" width="8" height="8" rx="1"/>',
+ undo:'<path d="m8 4-5 5 5 5M3 9h11a6 6 0 0 1 0 12"/>', redo:'<path d="m16 4 5 5-5 5m5-5H10a6 6 0 0 0 0 12"/>',
+ trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',
+ users:'<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3m2-17a3 3 0 0 1 0 6m1 4a5 5 0 0 1 3 5v2"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+ bolt:'<path d="m14 2-9 12h6l-1 8 9-12h-6l1-8Z"/>',
+ sliders:'<path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="var(--paper,white)"/><circle cx="15" cy="17" r="3" fill="var(--paper,white)"/>',
+ print:'<path d="M6 8V3h12v5M6 17H3V8h18v9h-3M6 14h12v7H6z"/>',
+
+ arrow: '<path d="M5 12h14m-5-5 5 5-5 5"/>', back: '<path d="M19 12H5m5-5-5 5 5 5"/>',
+ home: '<path d="m3 10 9-7 9 7v10H3zM9 20v-7h6v7"/>', map: '<rect x="3" y="3" width="7" height="6" rx="2"/><rect x="14" y="15" width="7" height="6" rx="2"/><path d="M6 9v9h8m3-15v7m-3-3h7"/>',
+ plan: '<rect x="5" y="4" width="15" height="17" rx="3"/><path d="M9 4V2m7 2V2M9 10h7m-7 4h7m-7 4h3"/>', library: '<rect x="3" y="4" width="6" height="16" rx="1"/><rect x="12" y="4" width="6" height="16" rx="1" transform="rotate(-12 12 4)"/>',
+ search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>', close: '<path d="m6 6 12 12M6 18 18 6"/>',
+ bag: '<path d="M4 7h16l-1 14H5L4 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/>', message: '<path d="M21 11a8 8 0 0 1-8 8H8l-5 3V11a9 9 0 0 1 18 0Z"/><path d="M7 10h10m-10 4h6"/>',
+ calendar: '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-14 4h3m4 0h3"/>', download: '<path d="M12 3v12m-5-5 5 5 5-5M4 15v6h16v-6"/>',
+ diamond: '<path d="m12 3 9 9-9 9-9-9 9-9Z"/><path d="m8 12 4 4 4-4"/>', play: '<rect x="3" y="4" width="18" height="16" rx="4"/><path d="m10 8 6 4-6 4V8Z"/>',
+ layout: '<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18m-11 0v11"/>', cursor: '<path d="m5 3 14 10-7 1-3 7L5 3Z"/>', check: '<path d="m5 12 4 4L19 6"/>',
+ return: '<path d="M4 9h10a6 6 0 1 1 0 12h-2M4 9l5-5M4 9l5 5"/>', chart: '<path d="M4 3v18h17M8 16v-4m5 4V7m5 9v-6"/>',
+ sparkle: '<path d="m12 3 2.7 6.3L21 12l-6.3 2.7L12 21l-2.7-6.3L3 12l6.3-2.7L12 3Z"/>', copy: '<rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v13h5"/>',
+ chevron: '<path d="m9 5 7 7-7 7"/>', chevronDown: '<path d="m6 9 6 6 6-6"/>', clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ upload: '<path d="M12 16V3m-5 5 5-5 5 5M4 15v6h16v-6"/>', shield: '<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/>',
+ note: '<path d="M14 3H4v18h16V9l-6-6Zm0 0v6h6M8 13h8m-8 4h5"/>', menu: '<path d="M4 6h16M4 12h16M4 18h16"/>', dot: '<circle cx="12" cy="12" r="3"/>',
+};
+export const icon = (name, extra = '') => `<svg class="icon ${extra}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.dot}</svg>`;

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="description" content="Uporządkuj kampanię od oferty do pomiaru. Interaktywna mapa, brief, checklisty, notatki i polecenia do AI w jednym miejscu.">
+  <title>Kampanie Prescot LED — od produktu do klienta</title>
+  <link rel="icon" href="assets/studio-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=prescot-3-2">
+<link rel="stylesheet" href="campaigns.css?v=prescot-3-2">
+  <link rel="stylesheet" href="guide.css?v=prescot-3-2">
+  <link rel="stylesheet" href="readability.css?v=prescot-3-2">
+</head>
+<body>
+  <a href="#main" class="skip-link">Przejdź do treści</a>
+  <aside class="sidebar" id="sidebar" aria-label="Nawigacja główna"></aside>
+  <div class="app-shell">
+    <header class="topbar" id="topbar"></header>
+    <main id="main" tabindex="-1"><div class="loading">Otwieram Twoją przestrzeń…</div></main>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Nawigacja mobilna"></nav>
+  <dialog class="search-dialog" id="searchDialog" aria-labelledby="searchHeading">
+    <div class="search-head"><h2 id="searchHeading">Znajdź punkt kampanii</h2><button class="icon-button" data-action="close-search" aria-label="Zamknij wyszukiwanie">×</button></div>
+    <label class="search-field"><span class="sr-only">Wyszukaj</span><input id="searchInput" type="search" autocomplete="off" placeholder="np. grupa odbiorców, formularz, rolka…"></label>
+    <div class="search-results" id="searchResults"></div>
+    <p class="search-foot">Szukasz w bieżącym celu kampanii. Esc zamyka wyszukiwanie.</p>
+  </dialog>
+  <dialog class="import-dialog" id="importDialog" aria-labelledby="importHeading">
+    <h2 id="importHeading">Wczytać zapisany plan?</h2><p>Wczytany plik zastąpi wszystkie kampanie, mapy i ustalenia na tym urządzeniu. Pobierz obecną kopię, jeśli chcesz je zachować.</p>
+    <div class="dialog-actions"><button class="button secondary" data-action="backup">Pobierz obecną kopię</button><button class="button secondary" data-action="cancel-import">Anuluj</button><button class="button primary" data-action="confirm-import">Wczytaj plan</button></div>
+  </dialog>
+  <dialog class="campaign-dialog" id="campaignDialog" aria-label="Nowa kampania"></dialog>
+  <dialog class="review-dialog" id="reviewDialog" aria-label="Przegląd kampanii"></dialog>
+  <dialog class="prompt-dialog" id="promptDialog" aria-labelledby="flowPromptTitle"><div class="dialog-heading"><div><span class="eyebrow">KONTEKST TWOJEJ KAMPANII</span><h2 id="flowPromptTitle">Polecenie do AI</h2></div><button class="icon-button" data-action="close-dialog" aria-label="Zamknij polecenie">×</button></div><p>Skopiuj do wybranego narzędzia AI. Polecenie zawiera brief, ustalenia etapu i jego połączenia.</p><textarea rows="14" readonly aria-label="Treść polecenia do AI"></textarea><div class="dialog-actions"><button class="button primary" data-action="copy-flow-prompt">Skopiuj polecenie</button></div></dialog>
+  <input type="file" id="importFile" accept=".json,application/json" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="no-js">Włącz JavaScript, aby otworzyć mapę kampanii i swój plan.</p></noscript>
+  <script type="module" src="app.js?v=prescot-3-2"></script>
+</body>
+</html>
