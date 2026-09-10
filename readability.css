@@ -43,7 +43,7 @@ input::placeholder,textarea::placeholder{color:#697586}
 .campaign-switch-icon{width:40px;height:40px;color:#647287}
 .campaign-switch label{width:100%;gap:4px}
 .campaign-switch label>span{font-size:11px;color:#667282;letter-spacing:.06em}
-.campaign-switch select{font-size:15px!important;color:#293442;max-width:min(100%,440px);width:100%;min-height:27px}
+.campaign-switch select{font-size:15px!important;color:#293442;max-width:min(100%,440px);width:100%;min-height:27px;overflow:clip}
 .topbar-actions{gap:20px;flex-shrink:0}
 .guide-trigger,.search-trigger{font-size:14px;color:#586475;min-height:44px}
 .search-trigger kbd{font-size:11px;color:#606c7b}
@@ -163,7 +163,7 @@ main{padding:34px 36px 48px;max-width:1440px}
  .campaign-switch{grid-column:1/-1;grid-row:2;max-width:100%;width:100%}
  .campaign-switch label{display:flex;align-items:center;gap:12px;min-width:0}
  .campaign-switch label>span{font-size:10px;max-width:66px;line-height:1.4;flex-shrink:0}
- .campaign-switch select{flex:1;min-width:0;font-size:14px!important;max-width:none}
+ .campaign-switch select{flex:1 1 0%;width:0;min-width:0;font-size:14px!important;max-width:calc(100% - 78px)}
  .mobile-nav{padding:7px 8px max(9px,env(safe-area-inset-bottom))}
  .mobile-nav .nav-link{font-size:11px;line-height:1.4;min-height:48px;gap:5px}
  .mobile-nav .icon{width:21px;height:21px}
