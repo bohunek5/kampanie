@@ -1,5 +1,6 @@
-import { cleanState, STORAGE_KEY } from './model.js';
-import {cleanHandoff,cleanDesign} from './production-model.js';
+import {cleanAnalysis} from './campaign-ai.js?v=4.0.0';
+import { cleanState, STORAGE_KEY } from './model.js?v=4.0.0';
+import {cleanHandoff,cleanDesign} from './production-model.js?v=4.0.0';
 
 export const WORKSPACE_KEY = 'prescot.campaigns.v1';
 export const uid = () => globalThis.crypto.randomUUID();
@@ -73,7 +74,7 @@ export function cleanWorkspace(raw) {
     let id = /^[\w-]{1,80}$/.test(c.id) ? c.id : uid();
     if(ids.has(id))id=uid();ids.add(id);
     const base=cleanState(c), product=Object.hasOwn(products,c.product)?c.product:'other';
-    return {...base,id,product,flow:cleanFlow(c.flow,product,base.goal),handoff:cleanHandoff(c.handoff)};
+    return {...base,id,product,flow:cleanFlow(c.flow,product,base.goal),handoff:cleanHandoff(c.handoff),analysis:cleanAnalysis(c.analysis)};
   });
   return {schema:1,activeCampaignId:ids.has(raw.activeCampaignId)?raw.activeCampaignId:campaigns[0].id,campaigns};
 }

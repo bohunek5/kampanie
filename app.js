@@ -1,10 +1,11 @@
-import { content, goalMeta, stages, statuses, briefFields, itemsFor, titleFor, tasksFor, taskState, stats, promptFor, markdownFor } from './model.js';
-import { icon } from './icons.js';
-import { WORKSPACE_KEY, loadWorkspace, importWorkspace, createCampaign, products, nodeTypes, reviewFlow, conversionTitles } from './workspace.js';
-import { FlowEditor, flowSVG } from './flow.js';
-import {guideView,feedbackTemplate} from './guide.js';
-import {handoffView,handoffHTML,refreshHandoff} from './handoff.js';
-import {cleanHandoff,cleanDesign,handoffFields,designFields,selectedCreatives} from './production-model.js';
+import {studioView,initStudio,showAnalysis} from './studio.js?v=4.0.0';
+import { content, goalMeta, stages, statuses, briefFields, itemsFor, titleFor, tasksFor, taskState, stats, promptFor, markdownFor } from './model.js?v=4.0.0';
+import { icon } from './icons.js?v=4.0.0';
+import { WORKSPACE_KEY, loadWorkspace, importWorkspace, createCampaign, products, nodeTypes, reviewFlow, conversionTitles } from './workspace.js?v=4.0.0';
+import { FlowEditor, flowSVG } from './flow.js?v=4.0.0';
+import {guideView,feedbackTemplate} from './guide.js?v=4.0.0';
+import {handoffView,handoffHTML,refreshHandoff} from './handoff.js?v=4.0.0';
+import {cleanHandoff,cleanDesign,handoffFields,designFields,selectedCreatives} from './production-model.js?v=4.0.0';
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -13,7 +14,7 @@ try { workspace = loadWorkspace(localStorage); } catch { storageOK=false;try{con
 let state = workspace.campaigns.find(c=>c.id===workspace.activeCampaignId);
 let view, filter = 'all', pendingImport = null, handoffMode='edit';
 const main = $('#main');
-const navItems = [['home', 'home', 'Moje kampanie'], ['map', 'map', 'Mapa kampanii'], ['plan', 'plan', 'Brief i zadania'], ['library', 'library', 'Kreacje reklamowe'], ['report','chart','Podsumowanie']];
+const navItems = [['studio','plus','Nowa kampania'],['home','home','Moje kampanie'],['map','map','Mapa kampanii'],['handoff','play','Dla grafika']];
 const href = (page, stage = '', index = '') => `#${page}/${state.goal}${stage ? '/' + stage : ''}${index !== '' ? '/' + index : ''}`;
 const button = (label, action, primary = false) => `<button class="button ${primary ? 'primary' : 'secondary'}" data-action="${action}">${label}</button>`;
 const chip = (name, color) => `<span class="stage-icon ${color}">${icon(name)}</span>`;
@@ -41,7 +42,7 @@ function notify(message) {
 function readView() {
   const parts = location.hash.slice(1).split('/');
   let [page, goal, stage, index] = parts;
-  if (!['home', 'map', 'plan', 'library', 'area', 'detail', 'report', 'guide', 'handoff'].includes(page)) page = 'home';
+  if (!['studio', 'home', 'map', 'plan', 'library', 'area', 'detail', 'report', 'guide', 'handoff'].includes(page)) page = 'studio';
   if (!Object.hasOwn(goalMeta, goal)) goal = state.goal;
   if (['area', 'detail'].includes(page) && !stages.some(s => s.id === stage)) { page = 'map'; stage = undefined; }
   if (page === 'detail' && (!/^\d+$/.test(index || '') || !itemsFor(goal, stage)[Number(index)])) page = 'area';
@@ -53,10 +54,10 @@ function navigate(page, stage, index) {
 }
 function shell() {
   const s=stats(state,state.goal),active=['area','detail'].includes(view.page)?(view.stage==='ads'?'library':'plan'):view.page;
-  const nav=mobile=>navItems.map(([id,image,title])=>`<a href="${href(id)}" class="nav-link ${active===id?'active':''}" ${active===id?'aria-current="page"':''}>${icon(image)}<span>${mobile?({home:'Kampanie',map:'Mapa',plan:'Brief',library:'Kreacje',report:'Przegląd'})[id]:title}</span>${!mobile&&id==='plan'?`<span class="nav-count">${s.done}</span>`:''}</a>`).join('');
-  $('#sidebar').innerHTML=`<a class="brand prescot-brand" href="${href('home')}" aria-label="Kampanie Prescot LED — moje kampanie"><img src="assets/prescot/logo.svg" width="196" height="28" alt="Prescot LED"><span class="brand-sub">Kampanie</span></a><div class="workspace-label">PRZESTRZEŃ MARKETINGU</div><nav>${nav(false)}</nav><div class="workspace-help"><a href="${href('handoff')}" class="${view.page==='handoff'?'active':''}" ${view.page==='handoff'?'aria-current="page"':''}>${icon('play')} Brief dla grafika</a><a href="${href('guide','owner')}" class="${view.page==='guide'?'active':''}" ${view.page==='guide'?'aria-current="page"':''}>${icon('note')} Poradnik</a></div><div class="sidebar-progress"><span class="eyebrow">PRZYGOTOWANIE KAMPANII</span><div class="sidebar-progress-title"><strong>${s.done}<small> / ${s.total}</small></strong><span>zadań<br>gotowych</span></div>${progress(s)}<a href="${href('report')}">Otwórz podsumowanie ${icon('arrow')}</a></div><div class="sidebar-bottom"><span class="local-icon">${icon('shield')}</span><div><strong>Automatyczny zapis</strong><span data-save-label></span></div></div>`;
+  const nav=mobile=>navItems.map(([id,image,title])=>`<a href="${href(id)}" class="nav-link ${active===id?'active':''}" ${active===id?'aria-current="page"':''}>${icon(image)}<span>${mobile?({studio:'Nowa',home:'Kampanie',map:'Mapa',handoff:'Dla grafika'})[id]:title}</span>${!mobile&&id==='plan'?`<span class="nav-count">${s.done}</span>`:''}</a>`).join('');
+  $('#sidebar').innerHTML=`<a class="brand prescot-brand" href="${href('studio')}" aria-label="Kampanie Prescot LED — przygotuj z AI"><img src="assets/prescot/logo.svg" width="196" height="28" alt="Prescot LED"><span class="brand-sub">Kampanie</span></a><div class="workspace-label">PRZESTRZEŃ MARKETINGU</div><nav>${nav(false)}</nav><details class="sidebar-tools"><summary>Narzędzia szczegółowe</summary><a href="${href('plan')}">Brief i zadania</a><a href="${href('library')}">Biblioteka formatów</a><a href="${href('report')}">Podsumowanie</a></details><div class="sidebar-progress"><span class="eyebrow">PRZYGOTOWANIE KAMPANII</span><div class="sidebar-progress-title"><strong>${s.done}<small> / ${s.total}</small></strong><span>zadań<br>gotowych</span></div>${progress(s)}<a href="${href('report')}">Otwórz podsumowanie ${icon('arrow')}</a></div><div class="sidebar-bottom"><span class="local-icon">${icon('shield')}</span><div><strong>Automatyczny zapis</strong><span data-save-label></span></div></div>`;
   $('#mobileNav').innerHTML=nav(true);
-  $('#topbar').innerHTML=`<a href="${href('home')}" class="mobile-brand" aria-label="Prescot LED — moje kampanie"><img src="assets/prescot/logo.svg" alt="Prescot LED" width="154" height="23"></a><div class="campaign-switch"><span class="campaign-switch-icon">${icon('map')}</span><label><span>AKTYWNA KAMPANIA</span><select data-campaign-switch aria-label="Aktywna kampania">${workspace.campaigns.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${esc(c.brief.name||'Kampania bez nazwy')}</option>`).join('')}</select></label></div><div class="topbar-actions"><a class="guide-trigger" href="${href('guide','owner')}" aria-label="Poradnik kampanii">${icon('note')}<span>Poradnik</span></a><button class="search-trigger" data-action="search" aria-label="Szukaj w kampanii">${icon('search')}<span>Szukaj</span><kbd>⌘ K</kbd></button><button class="button dark top-plan" data-action="new-campaign">${icon('plus')}<span>Nowa kampania</span></button></div>`;
+  $('#topbar').innerHTML=`<a href="${href('home')}" class="mobile-brand" aria-label="Prescot LED — moje kampanie"><img src="assets/prescot/logo.svg" alt="Prescot LED" width="154" height="23"></a><div class="campaign-switch"><span class="campaign-switch-icon">${icon('map')}</span><label><span>AKTYWNA KAMPANIA</span><select data-campaign-switch aria-label="Aktywna kampania">${workspace.campaigns.map(c=>`<option value="${c.id}" ${c.id===state.id?'selected':''}>${esc(c.brief.name||'Kampania bez nazwy')}</option>`).join('')}</select></label></div><div class="topbar-actions"><a class="guide-trigger" href="${href('guide','owner')}" aria-label="Poradnik kampanii">${icon('note')}<span>Poradnik</span></a><button class="search-trigger" data-action="search" aria-label="Szukaj w kampanii">${icon('search')}<span>Szukaj</span><kbd>⌘ K</kbd></button><button class="button dark top-plan" data-action="open-studio">${icon('plus')}<span>Przygotuj z AI</span></button></div>`;
   updateSaveLabel();
 }
 
@@ -64,12 +65,12 @@ function goalSwitch(compact = false) {
   return `<div class="goal-options ${compact ? 'compact' : ''}" role="group" aria-label="Cel kampanii">${Object.entries(goalMeta).map(([id, goal]) => `<button class="goal-option ${id === state.goal ? 'selected' : ''}" data-action="goal" data-goal="${id}" aria-pressed="${id === state.goal}">${icon(goal.icon)}<span><strong>${goal.label}</strong>${compact ? '' : `<small>${goal.description}</small>`}</span><span class="goal-tick">${icon('check')}</span></button>`).join('')}</div>`;
 }
 function homeView() {
- return `<div class="home-view"><section class="prescot-hero"><div class="prescot-hero-copy"><span class="eyebrow">WARSZTAT KAMPANII PRESCOT LED</span><h1>Dobre światło.<br><em>Dobry plan.</em></h1><p>Wybierz produkt. Ułóż ścieżkę do klienta.<br>Przekaż zespołowi konkretny brief.</p><div class="hero-actions"><button class="button primary" data-action="new-campaign">${icon('plus')} Nowa kampania</button><a class="text-link" href="${href('guide','owner')}">Jak to działa? ${icon('arrow')}</a></div></div><div class="prescot-hero-visual"><img src="assets/prescot/tasmy.webp" alt="Oświetlenie liniowe Prescot LED w kuchni" fetchpriority="high"><span class="hero-photo-caption">Od produktu do gotowej kampanii.</span></div></section><section class="home-campaigns"><div class="section-heading"><div><span class="eyebrow">TWOJA PRZESTRZEŃ</span><h2>Moje kampanie <span class="number-badge">${workspace.campaigns.length}</span></h2></div><span class="muted-caption">Wybierz projekt, aby kontynuować.</span></div><div class="campaign-cards">${workspace.campaigns.map(c=>{const p=products[c.product],s=stats(c,c.goal);return `<button class="campaign-card ${c.id===state.id?'current':''}" data-action="open-campaign" data-id="${c.id}"><div class="campaign-card-image"><img src="${p.image}" alt="" loading="lazy"><span>${p.name}</span></div><div class="campaign-card-body"><span class="eyebrow">${goalMeta[c.goal].label}</span><h3>${esc(c.brief.name||'Kampania bez nazwy')}</h3><p>${esc(c.brief.audience||'Wybierz grupę odbiorców')}</p><div class="campaign-card-stats"><span>${s.done} z ${s.total} zadań gotowych</span><span class="campaign-open">Otwórz ${icon('arrow')}</span></div>${progress(s)}</div></button>`}).join('')}</div></section><section class="first-campaign-help"><span class="stage-icon orange">${icon('note')}</span><div><h2>Pierwszy raz? Przejdziemy przez to razem.</h2><p>Krótki poradnik: od wyboru odbiorcy do briefu dla grafika.</p></div><a class="button secondary" href="${href('guide','owner')}">Otwórz poradnik ${icon('arrow')}</a></section></div>`;
+ return `<div class="home-view"><section class="home-campaigns"><div class="section-heading"><div><span class="eyebrow">TWOJA PRZESTRZEŃ</span><h2>Moje kampanie <span class="number-badge">${workspace.campaigns.length}</span></h2></div><div class="hero-actions"><button class="button secondary" data-action="new-campaign">Pusta mapa</button><button class="button primary" data-action="open-studio">Przygotuj z AI</button></div></div><div class="campaign-cards">${workspace.campaigns.map(c=>{const p=products[c.product],s=stats(c,c.goal);return `<button class="campaign-card ${c.id===state.id?'current':''}" data-action="open-campaign" data-id="${c.id}"><div class="campaign-card-image"><img src="${p.image}" alt="" loading="lazy"><span>${p.name}</span></div><div class="campaign-card-body"><span class="eyebrow">${goalMeta[c.goal].label}</span><h3>${esc(c.brief.name||'Kampania bez nazwy')}</h3><p>${esc(c.brief.audience||'Wybierz grupę odbiorców')}</p><div class="campaign-card-stats"><span>${s.done} z ${s.total} zadań gotowych</span><span class="campaign-open">Otwórz ${icon('arrow')}</span></div>${progress(s)}</div></button>`}).join('')}</div></section></div>`;
 }
 
 function mapView() {
  const p=products[state.product];
- return `<section class="map-heading"><div><span class="eyebrow">${p.name} <span class="eyebrow-divider">/</span> ${goalMeta[state.goal].label}</span><h1>${esc(state.brief.name||'Mapa kampanii')}</h1><p>Połącz produkt, odbiorców i działania w jeden plan.</p></div><a class="button secondary" href="${href('report')}">${icon('chart')}<span>Podsumowanie</span></a></section><section id="flowMount" class="flow-editor" aria-label="Projektant ścieżki kampanii"></section><div class="map-stage-links"><span>CHECKLISTY</span>${stages.map(stage=>`<a href="${href('area',stage.id)}">${icon(stage.icon)}${stage.title}</a>`).join('')}</div>`;
+ return `<section class="map-heading"><div>${state.analysis?'<button class="text-link" data-action="open-analysis">Otwórz analizę i reklamy AI →</button>':''}<span class="eyebrow">${p.name} <span class="eyebrow-divider">/</span> ${goalMeta[state.goal].label}</span><h1>${esc(state.brief.name||'Mapa kampanii')}</h1><p>Połącz produkt, odbiorców i działania w jeden plan.</p></div><a class="button secondary" href="${href('report')}">${icon('chart')}<span>Podsumowanie</span></a></section><section id="flowMount" class="flow-editor" aria-label="Projektant ścieżki kampanii"></section><div class="map-stage-links"><span>CHECKLISTY</span>${stages.map(stage=>`<a href="${href('area',stage.id)}">${icon(stage.icon)}${stage.title}</a>`).join('')}</div>`;
 }
 
 function preview(item,big=false) {
@@ -110,7 +111,7 @@ function render({ keepScroll=false }={}) {
   view=readView();
   if(state.goal!==view.goal) {changeGoal(view.goal);save();}
   shell();
-  main.innerHTML=({home:homeView,map:mapView,library:libraryView,area:areaView,detail:detailView,plan:planView,report:reportView,guide:()=>guideView(state.goal,view.stage),handoff:()=>handoffView(state,{mode:handoffMode,focusId:view.stage})})[view.page]();
+  main.innerHTML=({studio:studioView,home:homeView,map:mapView,library:libraryView,area:areaView,detail:detailView,plan:planView,report:reportView,guide:()=>guideView(state.goal,view.stage),handoff:()=>handoffView(state,{mode:handoffMode,focusId:view.stage})})[view.page]();
   main.dataset.view=view.page;main.dataset.goal=state.goal;document.title=`${view.page==='detail'?itemsFor(state.goal,view.stage)[view.index].title:'Kampanie Prescot LED'} — ${state.brief.name||'Plan kampanii'}`;
   updateSaveLabel();
   if(!keepScroll) {window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true});}
@@ -153,9 +154,9 @@ function focusFlowNode(id){
  if(!flowEditor)return;const n=flowEditor.node(id);if(!n)return;
  flowEditor.select(id);flowEditor.v.zoom=1;flowEditor.v.x=flowEditor.viewport.clientWidth/2-n.x-114;flowEditor.v.y=flowEditor.viewport.clientHeight/2-n.y-77;flowEditor.transform();flowEditor.commit();
 }
-function switchCampaign(id) {
+function switchCampaign(id, page='map') {
  const selected=workspace.campaigns.find(c=>c.id===id);if(!selected)return;
- workspace.activeCampaignId=id;state=selected;filter='all';handoffMode='edit';save();history.replaceState(null,'',href('map'));render();
+ workspace.activeCampaignId=id;state=selected;filter='all';handoffMode='edit';save();history.replaceState(null,'',href(page));render();
 }
 function openCampaignDialog(product='strips') {
  const dialog=$('#campaignDialog');
@@ -193,6 +194,8 @@ document.addEventListener('click',event=>{
     case 'print-handoff': if(selectedCreatives(state).length){handoffMode='preview';render();requestAnimationFrame(()=>window.print());}break;
     case 'open-creative': pendingFlowNode=action.dataset.id;handoffMode='edit';navigate('map');break;
     case 'copy-feedback': void copyFeedback();break;
+    case 'open-studio': navigate('studio');break;
+    case 'open-analysis': if(state.analysis){showAnalysis(state.analysis);navigate('studio');}break;
     case 'new-campaign': openCampaignDialog(action.dataset.product);break;
     case 'open-campaign': switchCampaign(action.dataset.id);break;
     case 'close-dialog': action.closest('dialog').close();break;
@@ -240,4 +243,5 @@ document.addEventListener('keydown',event=>{if(event.key==='Escape'){const dialo
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
 window.addEventListener('hashchange',()=>render());
 
+initStudio({notify,save(campaign){if(workspace.campaigns.length>=60)throw Error('Przestrzeń mieści 60 kampanii. Pobierz kopię przed dodaniem kolejnej.');workspace.campaigns.push(campaign);save();return campaign.id;},open:(id,page)=>switchCampaign(id,page)});
 render();
